@@ -2,11 +2,11 @@ import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key=os.environ.get(OPENAI_API_KEY),
+    api_key=os.environ.get("OPENAI_API_KEY"),
 )
 
 response = client.responses.create(
-    model="gpt-5.2",
+    model="gpt-4o-mini",
     instructions="""
 You are ChefAI, a professional cooking instructor.
 
