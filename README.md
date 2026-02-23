@@ -22,7 +22,7 @@ ChefAI acts as a professional cooking instructor that:
 ## 🛠 Tech Stack
 
 * Python 3.12
-* OpenAI Python SDK
+* Google-genai
 * Virtual Environment (venv)
 
 ---
@@ -45,7 +45,7 @@ make-your-own/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://your-gitea-url/make-your-own.git
+git clone https://acad.learn2earn.ng/git/holufade/make-your-own.git
 cd make-your-own
 ```
 
@@ -69,32 +69,63 @@ ai_agent\Scripts\activate
 ### 3️⃣ Install Dependencies
 
 ```bash
-pip install openai
+pip install Google-genai
 ```
 
 ---
 
-### 4️⃣ Set Your OpenAI API Key
+### 4️⃣ Configure Your API Key Using a `.env` File
 
-Linux / macOS:
+Create a file named `.env` in the root of the project directory.
 
-```bash
-export OPENAI_API_KEY="your_api_key_here"
-```
-
-Windows (PowerShell):
-
-```powershell
-setx OPENAI_API_KEY "your_api_key_here"
-```
-
-Verify that it is set:
+Add your Google GenAI API key like this:
 
 ```bash
-echo $OPENAI_API_KEY
+GOOGLE_API_KEY=your_api_key_here
 ```
 
-⚠️ Do NOT commit your API key to the repository.
+Make sure there are:
+
+* No quotes around the key
+* No spaces around the `=`
+
+---
+
+### 5️⃣ Ensure `.env` Is Ignored by Git
+
+Add this line to your `.gitignore` file:
+
+```bash
+.env
+```
+
+This prevents your secret key from being committed to the repository.
+
+---
+
+### 6️⃣ Verify Environment Variable Loading
+
+The project uses `python-dotenv` to load environment variables automatically.
+Ensure this line exists in your code:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+You can confirm it works by temporarily printing:
+
+```python
+import os
+print(os.getenv("GOOGLE_API_KEY"))
+```
+
+If it prints your key, it’s configured correctly.
+
+---
+
+⚠️ Never commit your real `.env` file.
+If you accidentally expose your API key, revoke it immediately and generate a new one.
 
 ---
 
@@ -104,7 +135,7 @@ echo $OPENAI_API_KEY
 python app.py
 ```
 
-The program will send a request to the OpenAI API and print a structured recipe in the terminal.
+The program will send a request to the Google-genai API and print a structured recipe in the terminal.
 
 ---
 
@@ -131,7 +162,7 @@ Tips:
 
 ## 🧠 How It Works
 
-1. The application initializes an OpenAI client using an environment variable.
+1. The application initializes an Google-genai client using an environment variable.
 2. It defines structured cooking instructions for the AI.
 3. A recipe request is sent to the model.
 4. The response is printed in a consistent, formatted structure.
