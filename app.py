@@ -1,13 +1,12 @@
 import os
-from openai import OpenAI
+from dotenv import load_dotenv
+from google import genai
 
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),
-)
+load_dotenv()
 
-response = client.responses.create(
-    model="gpt-4o-mini",
-    instructions="""
+client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+
+system_prompt = """
 You are ChefAI, a professional cooking instructor.
 
 Your role:
@@ -33,8 +32,13 @@ Steps:
 3.
 
 Tips:
-""",
-    input="Teach me how to cook jollof rice.",
+"""
+
+user_input = "Teach me how to cook jollof rice."
+
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents=f"{system_prompt}\n\nUser request:\n{user_input}",
 )
 
-print(response.output_text)
+print(response.text)
