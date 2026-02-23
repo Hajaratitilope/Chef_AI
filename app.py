@@ -63,7 +63,7 @@ STYLE REQUIREMENTS:
 - Do not include any extra sections outside the required format.
 """
 
-user_input = "carbohydrate content of cooked rice"
+user_input = input("What dish would you like to learn how to cook? ").strip()
 
 response = client.models.generate_content(
     model="gemini-2.5-flash",
