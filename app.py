@@ -15,9 +15,9 @@ st.write("Your personal cooking instructor. Ask about any dish!")
 # Check API key
 my_api_key = os.getenv("GOOGLE_API_KEY")
 
-if not my_api_key:
-    st.error("GOOGLE_API_KEY not found. Please check your .env file.")
-    st.stop()
+# if not my_api_key:
+#     st.error("GOOGLE_API_KEY not found. Please check your .env file.")
+#     st.stop()
 
 # Initialize client
 client = genai.Client(api_key=my_api_key)
