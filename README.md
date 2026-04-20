@@ -33,7 +33,7 @@ ChefAI acts as a professional cooking instructor that:
 ## 📂 Project Structure
 
 ```
-mmake-your-own/
+Chef_AI/
 │
 ├── ai_agent/              # Virtual environment (not committed)
 ├── .env
@@ -50,8 +50,8 @@ mmake-your-own/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://acad.learn2earn.ng/git/holufade/make-your-own.git
-cd make-your-own
+git clone https://github.com/Hajaratitilope/Chef_AI.git
+cd Chef_AI
 ```
 
 ---
