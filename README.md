@@ -1,6 +1,8 @@
 # 🍳 ChefAI – AI Cooking Instructor
 
-ChefAI is a simple AI-powered cooking assistant built with Python and the OpenAI API.
+🌐 **Live Demo:** [ChefAI App](https://chef-recipe-ai.streamlit.app/)
+
+ChefAI is a simple AI-powered cooking assistant built with Python and the Google GenAI.
 It teaches beginners how to cook recipes step-by-step in a clear and structured format.
 
 This project demonstrates how to use structured system instructions to guide AI responses consistently.
@@ -23,6 +25,7 @@ ChefAI acts as a professional cooking instructor that:
 
 * Python 3.12
 * Google-genai
+* Streamlit
 * Virtual Environment (venv)
 
 ---
@@ -30,12 +33,14 @@ ChefAI acts as a professional cooking instructor that:
 ## 📂 Project Structure
 
 ```
-make-your-own/
+mmake-your-own/
 │
-├── ai_agent/          # Virtual environment
-├── app.py             # Main application file
+├── ai_agent/              # Virtual environment (not committed)
+├── .env
 ├── .gitignore
-└── README.md
+├── app.py                   # Environment variables (not committed)
+├── README.md
+└── requirements.txt
 ```
 
 ---
@@ -68,8 +73,18 @@ ai_agent\Scripts\activate
 
 ### 3️⃣ Install Dependencies
 
+Make sure you have a `requirements.txt` file containing:
+
+```
+streamlit
+google-genai
+python-dotenv
+```
+
+Then install:
+
 ```bash
-pip install Google-genai
+pip install -r requirements.txt
 ```
 
 ---
